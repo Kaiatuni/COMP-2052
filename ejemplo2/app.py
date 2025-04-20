@@ -11,5 +11,6 @@ def saludo():
     data = request.json
     nombre = data.get("nombre", "Usuario")
     return f"Hola, {nombre}!"
+
 if __name__ == "__main__":
     app.run(debug=True)

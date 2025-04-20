@@ -2,30 +2,30 @@ from flask import Flask, request, jsonify
 
 app = Flask(__name__)
 
-mensaje =[]
+# Lista que simula la base de datos de mensajes
+mensajes = ["Hola, no tienes descuento"]
 
-# Ruta GET /info
-@app.route('/info', methods=['GET'])
+# Ruta GET para obtener información del servidor
+@app.route("/info", methods=["GET"])
 def info():
     return jsonify({
-        'nombre': 'Ejercicio1 de flask',
-        'versión': '1.0',
-        'descripción': 'Intento de hacer los ejercicios porque algunos no corren'
+        'version de prueba': "2.0",
+        'usuario': 'Kivan M. Lopez'
     })
 
-# Ruta POST /mensaje
-@app.route('/mensaje', methods=['POST'])
+# Ruta GET y POST para manejar mensajes
+@app.route("/mensaje", methods=["GET", "POST"])
 def mensaje():
-    data = request.get_json()
-    if not data or 'mensaje' not in data:
-        return jsonify({'error': 'Se requiere un campo "mensaje" en formato JSON.'}), 400
+    if request.method == "GET":
+        return jsonify({"mensajes": mensajes})
 
-    mensaje_usuario = data['mensaje']
-    respuesta = f"'{mensaje_usuario}'"
+    if request.method == "POST":
+        data = request.json
+        if not data or "mensaje" not in data:
+            return jsonify({"error": "Falta el campo 'mensaje'"}), 400
 
-    return jsonify({'Aqui tienes tu respuesta:': respuesta})
+        mensajes.append(data["mensaje"])
+        return jsonify({"respuesta": f"Mensaje recibido: '{data['mensaje']}'"}), 201
 
 if __name__ == '__main__':
     app.run(debug=True)
-    #no se que hice pero esto me corre mientras que los ejemplos no me corren :(
-        #me deje llevar por ejercicios de otros y cuando puse http en vez de .rest me corrio 

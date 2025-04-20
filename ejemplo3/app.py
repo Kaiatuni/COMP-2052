@@ -20,7 +20,7 @@ def insert_todos():
     if not data or "todo" not in data:
         return jsonify({"error" : "Datos incompletos"})
     
-    todos["todos"].append(data['todo'])
+    todos["/todos"].append(data['todo'])
     return jsonify(todos)
 
 if __name__ == "__main__":

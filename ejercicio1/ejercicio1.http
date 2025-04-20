@@ -1,0 +1,6 @@
+POST http://localhost:5000/mensaje
+Content-Type: application/json
+
+{
+  "mensaje": "Hola, soy un servidor :)"
+}

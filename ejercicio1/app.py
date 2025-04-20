@@ -2,6 +2,8 @@ from flask import Flask, request, jsonify
 
 app = Flask(__name__)
 
+mensaje =[]
+
 # Ruta GET /info
 @app.route('/info', methods=['GET'])
 def info():

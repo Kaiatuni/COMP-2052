@@ -1,0 +1,11 @@
+### Obtener el formulario de inicio de sesión
+GET http://127.0.0.1:5000/login
+Accept: text/html
+
+###
+
+### Enviar datos al formulario de inicio de sesión
+POST http://127.0.0.1:5000/login
+Content-Type: application/x-www-form-urlencoded
+
+username=juan123&password=clave123

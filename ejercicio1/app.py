@@ -5,6 +5,10 @@ app = Flask(__name__)
 # Lista que simula la base de datos de mensajes
 mensajes = ["Hola, no tienes descuento"]
 
+@app.route("/")
+def principal():
+    return "<h1>  Hola, este es el ejercicio1, no tienes descuento todavia. <h1>"
+    
 # Ruta GET para obtener información del servidor
 @app.route("/info", methods=["GET"])
 def info():

@@ -1,8 +1,8 @@
 ### Editar un curso (POST)
 
-# Simular POST con nuevos datos del curso
+# Simular POST con nuevos datos del libro
 
-PUT http://localhost:5000/libros/4
+PUT http://localhost:5000/localhost:5000/libros/1
 Content-Type: application/json
 
 {

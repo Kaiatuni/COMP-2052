@@ -1,4 +1,4 @@
-### Editar un curso (POST)
+### Editar un libro (POST)
 
 # Simular POST con nuevos datos del libro
 
